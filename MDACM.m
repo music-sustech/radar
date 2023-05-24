@@ -6,7 +6,7 @@ lambda = c/f_c;         %lambda
 f_lowIF = 5e4;  %Low intermediate frequency
 
 T = 100;
-Fs = 8e5;
+Fs = 4e5;
 Ns = Fs*T;
 n = 0:Ns-1;
 t= n/Fs;
@@ -26,7 +26,7 @@ IF_t = cos(pi/2+2*pi*f_lowIF*t+(h_t+r_t)*4*pi/lambda);
 
 %%%%%%%%%%%%%%%%%%  IQ modulation  %%%%%%%%%%%%%%%%%%%%%%%%
 
-LO_I = -sin(2*pi*f_lowIF*t);   % singal used to generate I channel signal
+LO_I = sin(2*pi*f_lowIF*t);   % singal used to generate I channel signal
 LO_Q = cos(2*pi*f_lowIF*t);   % signal used to generate Q channel signal 
 
 I_t = IF_t.*LO_I;
@@ -143,19 +143,6 @@ ylabel("Q(t)");
 axis([-1,1,-1,1]);
 hold on
 plot(x,y,'--');
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
